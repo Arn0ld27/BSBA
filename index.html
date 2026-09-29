@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Portal · BSBA 1B Grades & Reminders</title>
+    <title>Student Portal · Grades & Reminders</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -25,7 +25,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 11.955A12.051 12.051 0 0112 20.555a12.051 12.051 0 01-6.16-2.922 12.083 12.083 0 01.665-11.955L12 14z"></path>
                     </svg>
                 </div>
-                <h1 class="text-base sm:text-lg font-bold tracking-wide text-white">Student Portal · BSBA </h1>
+                <h1 class="text-base sm:text-lg font-bold tracking-wide text-white">Student Portal</h1>
             </div>
             <div id="user-nav-info" class="hidden flex items-center space-x-3">
                 <span id="nav-student-name" class="hidden sm:inline text-xs font-semibold text-sky-300"></span>
@@ -45,13 +45,13 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                     </svg>
                 </div>
-                <h2 class="text-xl sm:text-2xl font-bold">Student Login</h2>
+                <h2 class="text-xl sm:text-2xl font-bold">Portal Login</h2>
                 <p class="text-slate-400 text-xs sm:text-sm mt-1">Enter your School Email and ID Number</p>
             </div>
             <form id="login-form" onsubmit="handleLogin(event)" class="p-6 sm:p-8 space-y-4">
                 <div>
-                    <label for="school-email" class="block text-xs font-bold uppercase tracking-wider text-sky-400 mb-1.5"> Email</label>
-                    <input type="email" id="school-email" required placeholder="e.g., arnoldpogi@gmail.com"
+                    <label for="school-email" class="block text-xs font-bold uppercase tracking-wider text-sky-400 mb-1.5">School Email</label>
+                    <input type="email" id="school-email" required placeholder="e.g., student@gmail.com"
                         autocomplete="email"
                         class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 text-sm text-slate-100 placeholder-slate-500">
                 </div>
@@ -63,10 +63,10 @@
                 </div>
                 <div id="login-error" class="hidden text-rose-400 text-xs font-medium text-center bg-rose-950/50 p-2.5 rounded-lg border border-rose-900" role="alert"></div>
                 <button type="submit" id="login-btn" class="w-full bg-sky-500 hover:bg-sky-400 active:bg-sky-600 text-white font-semibold py-3 rounded-xl transition shadow-lg shadow-sky-500/20 text-sm flex items-center justify-center gap-2">
-                    <span>Login </span>
+                    <span>Access Portal Securely</span>
                 </button>
                 <p class="text-center text-[11px] text-slate-500 mt-2 leading-relaxed">
-                    Gamitin nyo yung nilagay nyo sa gform na finill up nyo<br>
+                    Use your registered Gmail and Student ID<br>
                     <span class="text-sky-400/80">e.g., juandelacruz@gmail.com / 226-XXXX-XXXXXXXX</span>
                 </p>
             </form>
@@ -120,7 +120,7 @@
                     </div>
                     <div>
                         <h3 class="text-xs sm:text-sm font-bold text-amber-400">Important General Reminder</h3>
-                        <p class="text-xs sm:text-sm text-amber-200/90 mt-0.5">Please habang mabait pa ako sa inyo ,mag comply kayo bago mag final exam hahah</p>
+                        <p class="text-xs sm:text-sm text-amber-200/90 mt-0.5">Please check your subject requirements and complete any pending assignments before the cut-off period.</p>
                     </div>
                 </div>
                 <button onclick="dismissReminder()" class="text-amber-400/70 hover:text-amber-300 text-lg leading-none p-1 rounded-lg hover:bg-amber-900/30 transition flex-shrink-0" aria-label="Dismiss reminder">✕</button>
@@ -136,7 +136,7 @@
             </div>
 
             <!-- GRADING SCHEME TABLE -->
-            <!--<div class="bg-slate-900 rounded-2xl shadow-lg border border-slate-800 p-5 sm:p-6">
+            <div class="bg-slate-900 rounded-2xl shadow-lg border border-slate-800 p-5 sm:p-6">
                 <h3 class="font-bold text-white text-base sm:text-lg mb-3 flex items-center gap-2">
                     <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
@@ -165,13 +165,13 @@
                         </tbody>
                     </table>
                 </div>
-            </div>-->
+            </div>
         </section>
     </main>
 
     <!-- FOOTER -->
     <footer class="border-t border-slate-800 mt-12 py-4 text-center text-xs text-slate-500">
-        BSBA · Living in the IT Era · Pogi Arnold
+        Student Portal · Living in the IT Era
     </footer>
 
     <!-- LOGIC -->
@@ -223,7 +223,7 @@
                         id: row.id,
                         email: row.email,
                         name: row.name,
-                        section: row.section || 'N/A',
+                        section: (row.section || 'N/A').trim(),
                         grades: [],
                         examScore: (row.semi_final_exam_score !== null && row.semi_final_exam_score !== undefined)
                             ? Number(row.semi_final_exam_score) : null
@@ -241,14 +241,23 @@
             return Array.from(map.values());
         }
 
+        // 🏆 Compute rankings PER SECTION
         function computeRankings(flatRows) {
-            const byName = new Map();
+            const bySection = new Map();
+
             for (const row of flatRows) {
-                const key = row.name.trim();
-                if (!byName.has(key)) {
-                    byName.set(key, { name: row.name, midterm: null, semifinal: null });
+                const section = (row.section || 'N/A').trim();
+                const name = row.name.trim();
+
+                if (!bySection.has(section)) {
+                    bySection.set(section, new Map());
                 }
-                const entry = byName.get(key);
+                const sectionMap = bySection.get(section);
+
+                if (!sectionMap.has(name)) {
+                    sectionMap.set(name, { name: row.name, section, midterm: null, semifinal: null });
+                }
+                const entry = sectionMap.get(name);
                 if (row.midterm !== null && row.midterm !== undefined && !isNaN(row.midterm)) {
                     entry.midterm = Number(row.midterm);
                 }
@@ -257,15 +266,26 @@
                 }
             }
 
-            const all = Array.from(byName.values());
-
-            const midtermSorted = all.filter(s => s.midterm !== null).sort((a, b) => b.midterm - a.midterm);
             const midtermRank = {};
-            midtermSorted.forEach((s, i) => { midtermRank[s.name.trim()] = i + 1; });
-
-            const semifinalSorted = all.filter(s => s.semifinal !== null).sort((a, b) => b.semifinal - a.semifinal);
             const semifinalRank = {};
-            semifinalSorted.forEach((s, i) => { semifinalRank[s.name.trim()] = i + 1; });
+
+            for (const [section, sectionMap] of bySection) {
+                const students = Array.from(sectionMap.values());
+
+                const midSorted = students
+                    .filter(s => s.midterm !== null)
+                    .sort((a, b) => b.midterm - a.midterm);
+                midSorted.forEach((s, i) => {
+                    midtermRank[`${section}::${s.name.trim()}`] = i + 1;
+                });
+
+                const semiSorted = students
+                    .filter(s => s.semifinal !== null)
+                    .sort((a, b) => b.semifinal - a.semifinal);
+                semiSorted.forEach((s, i) => {
+                    semifinalRank[`${section}::${s.name.trim()}`] = i + 1;
+                });
+            }
 
             return { midterm: midtermRank, semifinal: semifinalRank };
         }
@@ -277,7 +297,11 @@
                 const raw = await response.json();
                 allStudents = groupStudents(raw);
                 rankings = computeRankings(raw);
-                console.log(`✅ Loaded ${allStudents.length} students`);
+                console.log(`✅ Loaded ${allStudents.length} students (with login)`);
+                console.log(`📊 Sections ranked:`, Object.keys(
+                    Array.from(new Set(raw.map(r => (r.section || 'N/A').trim())))
+                        .reduce((acc, s) => (acc[s] = true, acc), {})
+                ));
                 return true;
             } catch (error) {
                 console.error("Error loading student records:", error);
@@ -349,7 +373,7 @@
             }, 700);
         }
 
-        function buildTop10Badge(termLabel, rank, score) {
+        function buildTop10Badge(termLabel, section, rank, score) {
             return `
                 <div class="bg-gradient-to-br from-amber-950/60 to-slate-900 border-l-4 border-amber-500 rounded-r-2xl p-4 shadow-md flex items-center gap-3">
                     <div class="bg-amber-500/20 p-3 rounded-xl border border-amber-500/40 text-amber-400 flex-shrink-0">
@@ -358,7 +382,7 @@
                         </svg>
                     </div>
                     <div class="flex-1">
-                        <p class="text-[10px] uppercase font-bold text-amber-400 tracking-wider">${termLabel}</p>
+                        <p class="text-[10px] uppercase font-bold text-amber-400 tracking-wider">${termLabel} · ${section}</p>
                         <p class="text-lg sm:text-xl font-black text-white leading-tight">Rank #${rank}</p>
                         <p class="text-xs text-amber-200/80 mt-0.5 font-mono">${score}%</p>
                     </div>
@@ -392,22 +416,25 @@
                 .slice(0, 2);
             document.getElementById('student-initials').textContent = initials || '??';
 
-            // Top 10 badges
+            // 🏆 TOP 10 BADGES (per section)
             const badgesContainer = document.getElementById('top10-badges');
             const nameKey = currentStudent.name.trim();
-            const midtermRank = rankings.midterm[nameKey];
-            const semifinalRank = rankings.semifinal[nameKey];
+            const sectionKey = currentStudent.section.trim();
+            const rankKey = `${sectionKey}::${nameKey}`;
+
+            const midtermRank = rankings.midterm[rankKey];
+            const semifinalRank = rankings.semifinal[rankKey];
 
             const badgesHTML = [];
             if (midtermRank && midtermRank <= 10) {
                 const midtermPct = currentStudent.grades[0]?.midterm;
                 const scoreStr = midtermPct !== null && midtermPct !== undefined ? midtermPct.toFixed(2) : '';
-                badgesHTML.push(buildTop10Badge('Midterm Top 10', midtermRank, scoreStr));
+                badgesHTML.push(buildTop10Badge('Midterm Top 10', sectionKey, midtermRank, scoreStr));
             }
             if (semifinalRank && semifinalRank <= 10) {
                 const semiPct = currentStudent.grades[0]?.semifinal;
                 const scoreStr = semiPct !== null && semiPct !== undefined ? semiPct.toFixed(2) : '';
-                badgesHTML.push(buildTop10Badge('Semi-Final Top 10', semifinalRank, scoreStr));
+                badgesHTML.push(buildTop10Badge('Semi-Final Top 10', sectionKey, semifinalRank, scoreStr));
             }
 
             if (badgesHTML.length > 0) {
@@ -418,7 +445,7 @@
                 badgesContainer.innerHTML = '';
             }
 
-            // Grades
+            // GRADES
             const container = document.getElementById('grades-boxes-container');
             if (!currentStudent.grades || currentStudent.grades.length === 0) {
                 container.innerHTML = `<p class="text-slate-400 text-sm">No grade records available.</p>`;
