@@ -568,5 +568,20 @@
         "exam_score": 0,
         "overall_average": 14.25,
         "overall_point": "5"
+    },
+    {
+        "id": "226-SANM-02530181",
+        "email": "micasanidad@gmail.com",
+        "name": "SANIDAD, MICA MAE GACAYAN",
+        "section": "BSBA 1C",
+        "code": "GE ELECT 2",
+        "description": "LIVING IN THE IT ERA",
+        "prelim": 92.06,
+        "midterm": 86.52,
+        "semi_finals": 74.79,
+        "final_term": 91.4,
+        "exam_score": 94,
+        "overall_average": 86.74529915,
+        "overall_point": "1.75"
     }
 ]
