@@ -6,9 +6,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 20.0,
-        "semi_finals": 30.0,
-        "semi_final_exam_score": null
+        "prelim": 0,
+        "midterm": 20,
+        "semi_finals": 30,
+        "final_term": 40,
+        "exam_score": 40,
+        "overall_average": 24,
+        "overall_point": "5"
     },
     {
         "id": "226-AREM-02530279",
@@ -17,9 +21,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 94.307692,
-        "semi_finals": 84.335664,
-        "semi_final_exam_score": 34
+        "prelim": 98.74,
+        "midterm": 94.31,
+        "semi_finals": 84.34,
+        "final_term": 93.75,
+        "exam_score": 98,
+        "overall_average": 93.0304453,
+        "overall_point": "1.25"
     },
     {
         "id": "226-AVIW-02530135",
@@ -28,9 +36,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 80.730769,
-        "semi_finals": 82.391608,
-        "semi_final_exam_score": 31
+        "prelim": 91.47,
+        "midterm": 80.73,
+        "semi_finals": 82.39,
+        "final_term": 89.85,
+        "exam_score": 86,
+        "overall_average": 85.9486529,
+        "overall_point": "1.75"
     },
     {
         "id": "226-BALC-02530140",
@@ -39,20 +51,28 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 83.384615,
-        "semi_finals": 84.825175,
-        "semi_final_exam_score": 37
+        "prelim": 99.37,
+        "midterm": 83.38,
+        "semi_finals": 84.83,
+        "final_term": 40,
+        "exam_score": 40,
+        "overall_average": 73.8541038,
+        "overall_point": "2.25"
     },
     {
-        "id": "226- BALC- 02530258",
+        "id": "226-BALC-02530258",
         "email": "Clivebalderrama5@gmail.com",
         "name": "BALDERRAMA, CLIVE MICHE",
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 80.628205,
-        "semi_finals": 46.590909,
-        "semi_final_exam_score": null
+        "prelim": 80.53,
+        "midterm": 80.63,
+        "semi_finals": 68.13,
+        "final_term": 40,
+        "exam_score": 40,
+        "overall_average": 65.9195988,
+        "overall_point": "2.75"
     },
     {
         "id": null,
@@ -61,9 +81,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 25.0,
+        "prelim": 4,
+        "midterm": 25,
         "semi_finals": 32.5,
-        "semi_final_exam_score": null
+        "final_term": 40,
+        "exam_score": 40,
+        "overall_average": 26.8,
+        "overall_point": "5"
     },
     {
         "id": "226-CABJ-02530124",
@@ -72,9 +96,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 82.833333,
-        "semi_finals": 44.090909,
-        "semi_final_exam_score": null
+        "prelim": 97.18,
+        "midterm": 82.83,
+        "semi_finals": 44.09,
+        "final_term": 76.4,
+        "exam_score": 91,
+        "overall_average": 76.0250239,
+        "overall_point": "2.25"
     },
     {
         "id": null,
@@ -83,9 +111,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 46.666667,
-        "semi_finals": 68.839161,
-        "semi_final_exam_score": 20
+        "prelim": 80.55,
+        "midterm": 46.67,
+        "semi_finals": 68.84,
+        "final_term": 40,
+        "exam_score": 40,
+        "overall_average": 55.8785585,
+        "overall_point": "5"
     },
     {
         "id": "226-CASZ-02530305",
@@ -94,9 +126,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 94.923077,
-        "semi_finals": 93.118881,
-        "semi_final_exam_score": 44
+        "prelim": 95.89,
+        "midterm": 94.92,
+        "semi_finals": 93.12,
+        "final_term": 89.13,
+        "exam_score": 91,
+        "overall_average": 93.0178285,
+        "overall_point": "1.25"
     },
     {
         "id": "226-DULJ-02530144",
@@ -105,9 +141,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 93.230769,
-        "semi_finals": 80.125874,
-        "semi_final_exam_score": 29
+        "prelim": 97.68,
+        "midterm": 93.23,
+        "semi_finals": 80.13,
+        "final_term": 85.75,
+        "exam_score": 78,
+        "overall_average": 89.2548841,
+        "overall_point": "1.5"
     },
     {
         "id": "226-MOLM-02530147",
@@ -116,9 +156,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 92.615385,
-        "semi_finals": 74.377622,
-        "semi_final_exam_score": 22
+        "prelim": 93.97,
+        "midterm": 92.62,
+        "semi_finals": 74.38,
+        "final_term": 91.35,
+        "exam_score": 92,
+        "overall_average": 88.8585131,
+        "overall_point": "1.5"
     },
     {
         "id": "226-DURP-02530130",
@@ -127,9 +171,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 90.153846,
-        "semi_finals": 77.454545,
-        "semi_final_exam_score": 26
+        "prelim": 88.92,
+        "midterm": 90.15,
+        "semi_finals": 77.45,
+        "final_term": 56.36,
+        "exam_score": 93,
+        "overall_average": 77.2303644,
+        "overall_point": "2.25"
     },
     {
         "id": null,
@@ -138,9 +186,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 84.0,
-        "semi_finals": 79.72028,
-        "semi_final_exam_score": 28
+        "prelim": 93.18,
+        "midterm": 84,
+        "semi_finals": 79.72,
+        "final_term": 91.85,
+        "exam_score": 91,
+        "overall_average": 87.3372617,
+        "overall_point": "1.5"
     },
     {
         "id": "226-ESTA-02530139",
@@ -149,9 +201,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 90.769231,
-        "semi_finals": 83.566434,
-        "semi_final_exam_score": 33
+        "prelim": 97.05,
+        "midterm": 90.77,
+        "semi_finals": 83.57,
+        "final_term": 91.35,
+        "exam_score": 92,
+        "overall_average": 90.7582186,
+        "overall_point": "1.5"
     },
     {
         "id": "226-FAJM-02530243",
@@ -160,20 +216,28 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 95.076923,
-        "semi_finals": 85.916084,
-        "semi_final_exam_score": 37
+        "prelim": 97.37,
+        "midterm": 95.08,
+        "semi_finals": 85.92,
+        "final_term": 90.76,
+        "exam_score": 92,
+        "overall_average": 92.4090688,
+        "overall_point": "1.25"
     },
     {
-        "id": "226-FLOM-02530141",
-        "email": "marygraceflorendo475@gmail.com",
+        "id": null,
+        "email": null,
         "name": "FLORENDO, MARY GRACE MENDOZA",
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 81.538462,
-        "semi_finals": 79.762238,
-        "semi_final_exam_score": 29
+        "prelim": 95.68,
+        "midterm": 81.54,
+        "semi_finals": 79.76,
+        "final_term": 53.64,
+        "exam_score": 91,
+        "overall_average": 75.6417372,
+        "overall_point": "2.25"
     },
     {
         "id": "226-HABN-02530138",
@@ -182,20 +246,28 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 82.769231,
-        "semi_finals": 82.517483,
-        "semi_final_exam_score": 34
+        "prelim": 81.84,
+        "midterm": 82.77,
+        "semi_finals": 82.52,
+        "final_term": 91.35,
+        "exam_score": 92,
+        "overall_average": 85.1063232,
+        "overall_point": "1.75"
     },
     {
         "id": "226-HERA-02530131",
-        "email": "hernandoariakhaye04@gmail.com", 
+        "email": "hernandoariakhaye04@gmail.com",
         "name": "HERNANDO, ARIA KHAYE URBANO",
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 48.0,
-        "semi_finals": 83.9300699300699,
-        "semi_final_exam_score": 33
+        "prelim": 95.24,
+        "midterm": 88.77,
+        "semi_finals": 83.93,
+        "final_term": 96.47,
+        "exam_score": 91,
+        "overall_average": 91.4059698,
+        "overall_point": "1.5"
     },
     {
         "id": "226-ILAJ-02530134",
@@ -204,20 +276,28 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 98.153846,
-        "semi_finals": 83.160839,
-        "semi_final_exam_score": 32
+        "prelim": 94.26,
+        "midterm": 98.15,
+        "semi_finals": 83.16,
+        "final_term": 96.69,
+        "exam_score": 94,
+        "overall_average": 93.938226,
+        "overall_point": "1.25"
     },
     {
         "id": null,
-        "email": "tjacalipas@gmail.com", 
+        "email": null,
         "name": "JACA, TRIXIE CALIPAS",
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 59.333333,
-        "semi_finals": 68.898601,
-        "semi_final_exam_score": 29
+        "prelim": 94.26,
+        "midterm": 58.8,
+        "semi_finals": 68.9,
+        "final_term": 74,
+        "exam_score": 85,
+        "overall_average": 72.2323519,
+        "overall_point": "2.5"
     },
     {
         "id": "226-JAMP-02530129",
@@ -226,9 +306,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 88.410256,
-        "semi_finals": 84.293706,
-        "semi_final_exam_score": 33
+        "prelim": 92.89,
+        "midterm": 95.08,
+        "semi_finals": 84.29,
+        "final_term": 55.45,
+        "exam_score": 89,
+        "overall_average": 80.5971292,
+        "overall_point": "2"
     },
     {
         "id": "226-LINP-02530265",
@@ -237,9 +321,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 67.012821,
-        "semi_finals": 67.36014,
-        "semi_final_exam_score": 27
+        "prelim": 85.45,
+        "midterm": 72.01,
+        "semi_finals": 67.36,
+        "final_term": 74.4,
+        "exam_score": 86,
+        "overall_average": 74.4853478,
+        "overall_point": "2.25"
     },
     {
         "id": "226-LITK-0530133",
@@ -248,20 +336,28 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 66.25641,
-        "semi_finals": 72.923077,
-        "semi_final_exam_score": 22
+        "prelim": 89.58,
+        "midterm": 72.92,
+        "semi_finals": 72.92,
+        "final_term": 50,
+        "exam_score": 69,
+        "overall_average": 69.3773279,
+        "overall_point": "2.5"
     },
     {
-        "id": "226-MACJ-02530350",
-        "email": "jesterms230@gmail.com",
+        "id": null,
+        "email": null,
         "name": "MACALINAO, JESTER PAJARILLO",
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 72.410256,
-        "semi_finals": 88.13986,
-        "semi_final_exam_score": 38
+        "prelim": 81.21,
+        "midterm": 79.08,
+        "semi_finals": 88.14,
+        "final_term": 89.85,
+        "exam_score": 86,
+        "overall_average": 84.545179,
+        "overall_point": "1.75"
     },
     {
         "id": "226-MARO-02530190",
@@ -270,9 +366,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 86.923077,
-        "semi_finals": 92.755245,
-        "semi_final_exam_score": 44
+        "prelim": 97.89,
+        "midterm": 93.59,
+        "semi_finals": 92.76,
+        "final_term": 91.18,
+        "exam_score": 91,
+        "overall_average": 93.5669194,
+        "overall_point": "1.25"
     },
     {
         "id": null,
@@ -281,9 +381,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 43.333333,
-        "semi_finals": 65.947552,
-        "semi_final_exam_score": 28
+        "prelim": 70.66,
+        "midterm": 50,
+        "semi_finals": 65.95,
+        "final_term": 40,
+        "exam_score": 40,
+        "overall_average": 54.3210894,
+        "overall_point": "5"
     },
     {
         "id": "226-MOLJ-02530136",
@@ -292,9 +396,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 88.769231,
-        "semi_finals": 92.027972,
-        "semi_final_exam_score": 44
+        "prelim": 96.53,
+        "midterm": 95.4,
+        "semi_finals": 92.03,
+        "final_term": 58.18,
+        "exam_score": 92,
+        "overall_average": 83.7961722,
+        "overall_point": "1.75"
     },
     {
         "id": "226-NOCM-02530285",
@@ -303,20 +411,28 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 87.025641,
-        "semi_finals": 91.664336,
-        "semi_final_exam_score": 44
+        "prelim": 98.95,
+        "midterm": 93.69,
+        "semi_finals": 91.66,
+        "final_term": 97.38,
+        "exam_score": 98,
+        "overall_average": 95.4455786,
+        "overall_point": "1.25"
     },
     {
         "id": "226-PAGD-02530311",
         "email": "Jiepagal@gmail.com",
-        "name": "PAGAL,DYLAN JAMES",
+        "name": "PAGAL, DYLAN JAMES",
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 75.3333333333333,
-        "semi_finals": 88.993007,
-        "semi_final_exam_score": 41
+        "prelim": 83.55,
+        "midterm": 82,
+        "semi_finals": 88.99,
+        "final_term": 53.64,
+        "exam_score": 90,
+        "overall_average": 75.2000368,
+        "overall_point": "2.25"
     },
     {
         "id": "226-PERA-02530292",
@@ -325,9 +441,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 86.4102564102564,
-        "semi_finals": 85.636364,
-        "semi_final_exam_score": 39
+        "prelim": 92.39,
+        "midterm": 93.08,
+        "semi_finals": 85.64,
+        "final_term": 54.55,
+        "exam_score": 91,
+        "overall_average": 79.8923934,
+        "overall_point": "2"
     },
     {
         "id": "226-PORK-02530128",
@@ -336,21 +456,29 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 69.333333,
-        "semi_finals": 57.933566,
-        "semi_final_exam_score": 19
+        "prelim": 82.32,
+        "midterm": 76,
+        "semi_finals": 57.93,
+        "final_term": 51.82,
+        "exam_score": 91,
+        "overall_average": 66.3953257,
+        "overall_point": "2.75"
     },
     {
-        "id": "226-QUIJ-02530360",
+        "id": "226-QUII-02530360",
         "email": "johnmarkquiambao3@gmail.com",
         "name": "QUIAMBAO, JOHN MARK RIVERA",
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 81.025641,
-        "semi_finals": 79.72028,
-        "semi_final_exam_score": 28
-    }, 
+        "prelim": 96.82,
+        "midterm": 87.69,
+        "semi_finals": 79.72,
+        "final_term": 87.56,
+        "exam_score": 97,
+        "overall_average": 87.8839791,
+        "overall_point": "1.5"
+    },
     {
         "id": "226-RAMR-02530268",
         "email": "bansyangramos@gmail.com",
@@ -358,9 +486,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 84.717949,
-        "semi_finals": 89.356643,
-        "semi_final_exam_score": 41
+        "prelim": 97.89,
+        "midterm": 91.38,
+        "semi_finals": 89.36,
+        "final_term": 96.36,
+        "exam_score": 100,
+        "overall_average": 93.7747516,
+        "overall_point": "1.25"
     },
     {
         "id": "226-SAMJ-02530189",
@@ -369,9 +501,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 68.717949,
-        "semi_finals": 73.65035,
-        "semi_final_exam_score": 22
+        "prelim": 93.32,
+        "midterm": 75.38,
+        "semi_finals": 73.65,
+        "final_term": 83.02,
+        "exam_score": 91,
+        "overall_average": 80.9140672,
+        "overall_point": "2"
     },
     {
         "id": "226-SINR-02530259",
@@ -380,9 +516,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 65.487179,
-        "semi_finals": 62.143357,
-        "semi_final_exam_score": 24
+        "prelim": 71.16,
+        "midterm": 72.15,
+        "semi_finals": 62.14,
+        "final_term": 40,
+        "exam_score": 40,
+        "overall_average": 60.3064041,
+        "overall_point": "3"
     },
     {
         "id": "226-TORH-02530212",
@@ -391,9 +531,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 82.871795,
-        "semi_finals": 76.643357,
-        "semi_final_exam_score": 24
+        "prelim": 95.63,
+        "midterm": 89.54,
+        "semi_finals": 76.64,
+        "final_term": 40,
+        "exam_score": 89,
+        "overall_average": 73.3165256,
+        "overall_point": "2.5"
     },
     {
         "id": "255-TORE-0254086",
@@ -402,9 +546,13 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 75.012821,
-        "semi_finals": 82.797203,
-        "semi_final_exam_score": 32
+        "prelim": 86.76,
+        "midterm": 80.01,
+        "semi_finals": 82.8,
+        "final_term": 95.89,
+        "exam_score": 92,
+        "overall_average": 86.6831191,
+        "overall_point": "1.75"
     },
     {
         "id": null,
@@ -413,432 +561,12 @@
         "section": "BSBA 1B",
         "code": "GE ELECT 2",
         "description": "LIVING IN THE IT ERA",
-        "midterm": 2.5,
-        "semi_finals": null,
-        "semi_final_exam_score": null
-    },
-
-
-
-    
-    {
-        "id": "226-BALL-02530219",
-        "email": "balanagleidy@gmail.com",
-        "name": "BALANAG, LEIDY VALDEZ",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 87.3015873,
-        "semi_finals": 87.90929705,
-        "semi_final_exam_score": 38
-    },
-    {
-        "id": "226-BLAA-02530200",
-        "email": "arvinjhonblanco0923@gmail.com",
-        "name": "BLANCO, ARVIN JHON VALDEZ",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 83.12698413,
-        "semi_finals": 82.56689342,
-        "semi_final_exam_score": 32
-    },
-    {
-        "id": "226-BUEA-02530238",
-        "email": "gwapolaway05@gmail.com",
-        "name": "BUENAVENTURA, ARON RUIZ",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 90.47619048,
-        "semi_finals": 37.5,
-        "semi_final_exam_score": null
-    },
-    {
-        "id": null,
-        "email": null,
-        "name": "BULOSAN, EILAH BEA MADRIAGA",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 52.5,
-        "semi_finals": 37.5,
-        "semi_final_exam_score": null
-    },
-    {
-        "id": "226-CALK-02530287",
-        "email": "etakoslac@gmail.com",
-        "name": "CALSO, KATE DAMASEN",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 97.0952381,
-        "semi_finals": 92.20861678,
-        "semi_final_exam_score": 40
-    },
-    {
-        "id": "226-CASM-02530256",
-        "email": "micaelacastillo028@gmail.com",
-        "name": "CASTILLO, MICAELA VHEA YANGO",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 97.73015873,
-        "semi_finals": 94.5850340136055,
-        "semi_final_exam_score": 44
-    },
-    {
-        "id": "226-DELJ-02530203",
-        "email": "johnlesterdelacruz027@gmail.com",
-        "name": "DELA CRUZ, JOHN LESTER CELENDRO",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 95.82539683,
-        "semi_finals": 92.80725624,
-        "semi_final_exam_score": 44
-    },
-    {
-        "id": "225-DULC-02530297",
-        "email": "mallaridulaychristeljoy@gmail.com",
-        "name": "DULAY, CHRISTEL JOY MALLARI",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 94.55555556,
-        "semi_finals": 97.47845805,
-        "semi_final_exam_score": 47
-    },
-    {
-        "id": "226-DUQA-02530211",
-        "email": "artonieoduque@gmail.com",
-        "name": "DUQUE, ARTONIE ORTIZ",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 64.07936508,
-        "semi_finals": 59.54081633,
-        "semi_final_exam_score": 27
-    },
-    {
-        "id": "226-ESMB-02530197",
-        "email": "bernakrissaesmundo@gmail.com",
-        "name": "ESMUNDO, BERNA KRISSA TABELINA",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 81.22222222,
-        "semi_finals": 84.64399093,
-        "semi_final_exam_score": 34
-    },
-    {
-        "id": null,
-        "email": null,
-        "name": "FAJICULAY, BLESSING MACUGAY",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 52.5,
-        "semi_finals": 37.5,
-        "semi_final_exam_score": null
-    },
-    {
-        "id": null,
-        "email": null,
-        "name": "FERNANDEZ, LADY ANNE BETTY RIVERA",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 56.30952381,
-        "semi_finals": 37.5,
-        "semi_final_exam_score": null
-    },
-    {
-        "id": null,
-        "email": null,
-        "name": "FRIAS, GIAN CARLO DOMINGO",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 52.5,
-        "semi_finals": 37.5,
-        "semi_final_exam_score": null
-    },
-    {
-        "id": null,
-        "email": null,
-        "name": "FRONDA, ALFRED FELIMON",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 95.82539683,
-        "semi_finals": 91.31972789,
-        "semi_final_exam_score": 40
-    },
-    {
-        "id": null,
-        "email": null,
-        "name": "GALLARDO, JIAN ISAIAH VILLAMAR",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 51.5,
-        "semi_finals": 37.5,
-        "semi_final_exam_score": null
-    },
-    {
-        "id": "226-HERG-02530328",
-        "email": "gianherrera0830@gmail.com",
-        "name": "HERRERA, GIAN CARLOS QUINTERO",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 80.07142857,
-        "semi_finals": 75.68253968,
-        "semi_final_exam_score": 35
-    },
-    {
-        "id": "226-MACR-02530216",
-        "email": "rosendamacabante69@gmail.com",
-        "name": "MACABANTE, ROSENDA MAY PALARCA",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 59.75396825,
-        "semi_finals": 69.01927438,
-        "semi_final_exam_score": 25
-    },
-    {
-        "id": "226-MALJ-02530299",
-        "email": "malicsenathan1@gmail.com",
-        "name": "MALICSE, JONATHAN MARTIN",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 87.57142857,
-        "semi_finals": 89.61451247,
-        "semi_final_exam_score": 39
-    },
-    {
-        "id": null,
-        "email": null,
-        "name": "MANZANO, LYKA MARIE MOSUELA",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 64.07936508,
-        "semi_finals": 63.29251701,
-        "semi_final_exam_score": 22
-    },
-    {
-        "id": "226-MARM-02530205",
-        "email": "xiemarcos10@gmail.com",
-        "name": "MARCOS, MITCH NICOLE DAYPO",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 94.55555556,
-        "semi_finals": 86.20408163,
-        "semi_final_exam_score": 37
-    },
-    {
-        "id": null,
-        "email": null,
-        "name": "MENDOZA, RON JAYSON TAMAYO",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 82.85714286,
-        "semi_finals": 79.97278912,
-        "semi_final_exam_score": 31
-    },
-    {
-        "id": null,
-        "email": null,
-        "name": "MERCULIO, JOHN BRYLE DURAN",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 51.5,
-        "semi_finals": 51.37755102,
-        "semi_final_exam_score": 17
-    },
-    {
-        "id": "226-PARA-02530224",
-        "email": "alyssajaneparocha985@gmail.com",
-        "name": "PAROCHA, ALYSSA JANE CABALO",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 91.11111111,
-        "semi_finals": 69.89569161,
-        "semi_final_exam_score": 29
-    },
-    {
-        "id": null,
-        "email": "veronicaparocha42@gmail.com",
-        "name": "PAROCHA, MA.VERONICA CALUZA",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 80.95238095,
-        "semi_finals": 81.23356009,
-        "semi_final_exam_score": 32
-    },
-    {
-        "id": null,
-        "email": null,
-        "name": "PASCUAL, ANGEL MAE DUFALE",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 94.92063492,
-        "semi_finals": 37.5,
-        "semi_final_exam_score": null
-    },
-    {
-        "id": null,
-        "email": "erwinpogingaso@gmail.com",
-        "name": "PATIAG, ERWIN JR. MALANDA",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 94.28571429,
-        "semi_finals": 48.61111111,
-        "semi_final_exam_score": null
-    },
-    {
-        "id": "226-PERP-02530255",
-        "email": "piaperalta65@gmail.com",
-        "name": "PERALTA, PIA CABANES",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 73.72222222,
-        "semi_finals": 80.04535147,
-        "semi_final_exam_score": 30
-    },
-    {
-        "id": "226-RIOM-02530218",
-        "email": "maryangelpulido03@gmail.com",
-        "name": "PULIDO, MARY ANGEL RIOROSO",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 82.49206349,
-        "semi_finals": 77.59637188,
-        "semi_final_exam_score": 27
-    },
-    {
-        "id": null,
-        "email": null,
-        "name": "RAMOS, LOVELY JOY AGUSTIN",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 51.5,
-        "semi_finals": 37.5,
-        "semi_final_exam_score": null
-    },
-    {
-        "id": null,
-        "email": null,
-        "name": "SANTOS, JOHN DERECK TRINIDAD",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 94.28571429,
-        "semi_finals": 79.22902494,
-        "semi_final_exam_score": 29
-    },
-    {
-        "id": null,
-        "email": null,
-        "name": "SATO, DAIKI RAMOS",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 60.03968254,
-        "semi_finals": 42.66666667,
-        "semi_final_exam_score": null
-    },
-    {
-        "id": "226-TACP-02530275",
-        "email": "tacadenaprincesjane@gmail.com",
-        "name": "TACADENA, PRINCES JANE PAYSON",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 98.0952381,
-        "semi_finals": 97.10657596,
-        "semi_final_exam_score": 46
-    },
-    {
-        "id": null,
-        "email": null,
-        "name": "TIBAYAN, CRISTINE JOY VILLOTA",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 51.5,
-        "semi_finals": 37.5,
-        "semi_final_exam_score": null
-    },
-    {
-        "id": null,
-        "email": null,
-        "name": "URBANO, JEWEL ALEYAH BALLO",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 51.5,
-        "semi_finals": 37.5,
-        "semi_final_exam_score": null
-    },
-    {
-        "id": "226-VALF-02530202",
-        "email": "valdezfrinces5@gmail.com",
-        "name": "VALDEZ, FRINCES KIM VELASQUEZ",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 56.5,
-        "semi_finals": 66.91156463,
-        "semi_final_exam_score": 15
-    },
-    {
-        "id": null,
-        "email": null,
-        "name": "VELASCO, CALVIN JOSEPH VERZOSA",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 51.5,
-        "semi_finals": 50.56122449,
-        "semi_final_exam_score": 16
-    },
-    {
-        "id": "226-VILP-02530223",
-        "email": "paulaladran1507@gmail.com",
-        "name": "VILLAR, PAULA LADRAN",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 65.98412698,
-        "semi_finals": 73.51473923,
-        "semi_final_exam_score": 22
-    },
-    {
-        "id": "226-YAND-02530201",
-        "email": "desireeyanguas23@gmail.com",
-        "name": "YANGUAS, DESIREE B.",
-        "section": "BSBA 1D",
-        "code": "GE ELECT 2",
-        "description": "LIVING IN THE IT ERA",
-        "midterm": 85.3968254,
-        "semi_finals": 84.12698413,
-        "semi_final_exam_score": 35
+        "prelim": 7.5,
+        "midterm": 0,
+        "semi_finals": 40,
+        "final_term": 40,
+        "exam_score": 0,
+        "overall_average": 14.25,
+        "overall_point": "5"
     }
 ]
-
-
