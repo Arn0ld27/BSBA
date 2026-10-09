@@ -191,8 +191,8 @@
         let allStudents = [];
         let currentStudent = null;
 
-        // Rankings now keyed by SECTION first
-        // Shape: { sectionName: { midterm: {}, semifinal: {}, overall: {} } }
+        // Rankings keyed by SECTION, then by TERM
+        // Shape: { sectionName: { prelim: {}, midterm: {}, semifinal: {}, finalterm: {}, overall: {} } }
         let rankings = {};
 
         function escapeHtml(text) {
@@ -261,7 +261,7 @@
                 }
 
                 const examScore = num(row.exam_score ?? row.final_exam_score ?? row.final_exam);
-                const examTotal = num(row.exam_total ?? row.final_exam_total) ?? 50;
+                const examTotal = num(row.exam_total ?? row.final_exam_total) ?? 100;
 
                 map.get(key).grades.push({
                     code: row.code || 'N/A',
@@ -272,17 +272,16 @@
                     finalTerm: num(row.final_term ?? row.finalTerm ?? row.finals),
                     examScore: examScore,
                     examTotal: examTotal,
-                    finalAverage: num(row.final_average ?? row.finalAverage),
-                    finalPoint:   str(row.final_point ?? row.finalPoint)
+                    finalAverage: num(row.final_average ?? row.finalAverage ?? row.overall_average),
+                    finalPoint:   str(row.final_point ?? row.finalPoint ?? row.overall_point)
                 });
             }
             return Array.from(map.values());
         }
 
-        // ⭐ PER-SECTION rankings
+        // ⭐ PER-SECTION rankings, with PRELIM, MIDTERM, SEMI, FINALTERM, OVERALL
         function computeRankings(flatRows) {
-            // Group by SECTION, then by NAME
-            const sections = new Map(); // section -> Map(name -> entry)
+            const sections = new Map();
 
             for (const row of flatRows) {
                 if (!row.name) continue;
@@ -296,8 +295,10 @@
                 if (!byName.has(nameKey)) {
                     byName.set(nameKey, {
                         name: row.name,
+                        prelim: null,
                         midterm: null,
                         semifinal: null,
+                        finalterm: null,
                         overall: null,
                         overallRank: null
                     });
@@ -307,17 +308,22 @@
                 const r = num(row.overall_rank);
                 if (r !== null) entry.overallRank = r;
 
+                const p = num(row.prelim);
+                if (p !== null) entry.prelim = p;
+
                 const m = num(row.midterm);
                 if (m !== null) entry.midterm = m;
 
                 const s = num(row.semi_finals ?? row.semifinal);
                 if (s !== null) entry.semifinal = s;
 
+                const f = num(row.final_term ?? row.finalTerm ?? row.finals);
+                if (f !== null) entry.finalterm = f;
+
                 const o = num(row.overall_average);
                 if (o !== null) entry.overall = o;
             }
 
-            // Build ranking maps PER SECTION
             const result = {};
 
             for (const [sectionKey, byName] of sections.entries()) {
@@ -340,9 +346,11 @@
                 }
 
                 result[sectionKey] = {
-                    midterm: rankBy('midterm'),
+                    prelim:    rankBy('prelim'),
+                    midterm:   rankBy('midterm'),
                     semifinal: rankBy('semifinal'),
-                    overall: overallMap
+                    finalterm: rankBy('finalterm'),
+                    overall:   overallMap
                 };
             }
 
@@ -427,20 +435,29 @@
             }, 700);
         }
 
-        function buildCompactTop10Badge(termLabel, rank, score) {
+        function buildCompactTop10Badge(termLabel, rank, score, accentColor) {
             const scoreStr = (score !== null && score !== undefined && !isNaN(score))
                 ? Number(score).toFixed(2) + '%' : '—';
+
+            const colors = {
+                emerald: { border: 'border-emerald-800/60', bg: 'bg-emerald-500/10', border2: 'border-emerald-500/30', text: 'text-emerald-400', textSoft: 'text-emerald-400/90', textVal: 'text-emerald-200/70' },
+                amber:   { border: 'border-amber-800/60',   bg: 'bg-amber-500/10',   border2: 'border-amber-500/30',   text: 'text-amber-400',   textSoft: 'text-amber-400/90',   textVal: 'text-amber-200/70' },
+                violet:  { border: 'border-violet-800/60',  bg: 'bg-violet-500/10',  border2: 'border-violet-500/30',  text: 'text-violet-400',  textSoft: 'text-violet-400/90',  textVal: 'text-violet-200/70' },
+                teal:    { border: 'border-teal-800/60',    bg: 'bg-teal-500/10',    border2: 'border-teal-500/30',    text: 'text-teal-400',    textSoft: 'text-teal-400/90',    textVal: 'text-teal-200/70' }
+            };
+            const c = colors[accentColor] || colors.amber;
+
             return `
-                <div class="bg-slate-900 border border-amber-800/60 rounded-xl p-3 sm:p-3.5 shadow-md flex items-center gap-3">
-                    <div class="bg-amber-500/10 p-2 sm:p-2.5 rounded-lg border border-amber-500/30 text-amber-400 flex-shrink-0">
+                <div class="bg-slate-900 border ${c.border} rounded-xl p-3 sm:p-3.5 shadow-md flex items-center gap-3">
+                    <div class="${c.bg} p-2 sm:p-2.5 rounded-lg border ${c.border2} ${c.text} flex-shrink-0">
                         <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118L2.06 9.36c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
                         </svg>
                     </div>
                     <div class="flex-1 min-w-0">
-                        <p class="text-[9px] sm:text-[10px] uppercase font-bold text-amber-400/90 tracking-wider">${termLabel}</p>
+                        <p class="text-[9px] sm:text-[10px] uppercase font-bold ${c.textSoft} tracking-wider">${termLabel}</p>
                         <p class="text-base sm:text-lg font-black text-white leading-tight">Rank #${rank}</p>
-                        <p class="text-[11px] sm:text-xs text-amber-200/70 mt-0.5 font-mono">${scoreStr}</p>
+                        <p class="text-[11px] sm:text-xs ${c.textVal} mt-0.5 font-mono">${scoreStr}</p>
                     </div>
                 </div>
             `;
@@ -528,29 +545,45 @@
                 badge.classList.add('hidden');
             }
 
-            // ⭐ TOP 10 BADGES — PER SECTION
+            // ⭐ TOP 10 BADGES — PER SECTION, PER TERM
             const badgesContainer = document.getElementById('top10-badges');
             const nameKey = currentStudent.name.trim();
             const sectionKey = (currentStudent.section || 'N/A').trim();
-            const sectionRankings = rankings[sectionKey] || { midterm: {}, semifinal: {}, overall: {} };
+            const sectionRankings = rankings[sectionKey] || {
+                prelim: {}, midterm: {}, semifinal: {}, finalterm: {}, overall: {}
+            };
 
-            const midtermRank = sectionRankings.midterm[nameKey];
+            // Get the first subject's grades for score display
+            const firstGrade = currentStudent.grades[0] || {};
+
+            const prelimRank    = sectionRankings.prelim[nameKey];
+            const midtermRank   = sectionRankings.midterm[nameKey];
             const semifinalRank = sectionRankings.semifinal[nameKey];
-            const overallRank = sectionRankings.overall[nameKey];
+            const finaltermRank = sectionRankings.finalterm[nameKey];
+            const overallRank   = sectionRankings.overall[nameKey];
 
             const badgesHTML = [];
 
+            // 👑 Overall Top 10 first (premium)
             if (overallRank && overallRank <= 10) {
                 badgesHTML.push(buildOverallTop10Badge(overallRank, currentStudent.overallAverage));
             }
 
+            // 📘 Compact term badges — in order: Prelim, Midterm, Semi, Final Term
             const compactBadges = [];
+            if (prelimRank && prelimRank <= 10) {
+                compactBadges.push(buildCompactTop10Badge('Prelim Top 10', prelimRank, firstGrade.prelim, 'emerald'));
+            }
             if (midtermRank && midtermRank <= 10) {
-                compactBadges.push(buildCompactTop10Badge('Midterm Top 10', midtermRank, currentStudent.grades[0]?.midterm));
+                compactBadges.push(buildCompactTop10Badge('Midterm Top 10', midtermRank, firstGrade.midterm, 'teal'));
             }
             if (semifinalRank && semifinalRank <= 10) {
-                compactBadges.push(buildCompactTop10Badge('Semi-Final Top 10', semifinalRank, currentStudent.grades[0]?.semifinal));
+                compactBadges.push(buildCompactTop10Badge('Semi-Final Top 10', semifinalRank, firstGrade.semifinal, 'amber'));
             }
+            if (finaltermRank && finaltermRank <= 10) {
+                compactBadges.push(buildCompactTop10Badge('Final Term Top 10', finaltermRank, firstGrade.finalTerm, 'violet'));
+            }
+
             if (compactBadges.length > 0) {
                 badgesHTML.push(`
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
@@ -594,11 +627,10 @@
                 const finalColor  = pointColor(finalPoint);
                 const heroBg      = pointBgColor(finalPoint);
 
-                const termCell = (label, weight, pct) => `
+                const termCell = (label, pct) => `
                     <div class="bg-slate-950/50 px-2 py-2 sm:px-3 sm:py-2.5 rounded-lg border border-slate-800/80 text-center">
                         <p class="text-[9px] uppercase font-bold text-slate-500 tracking-wider">${label}</p>
                         <p class="text-xs sm:text-sm font-mono font-bold text-slate-300 mt-0.5">${pct !== null ? pct + '%' : '—'}</p>
-                        <p class="text-[8px] font-bold text-emerald-500/70 mt-0.5">${weight}</p>
                     </div>
                 `;
 
@@ -643,10 +675,10 @@
                                     <p class="text-[10px] uppercase font-bold text-emerald-400 tracking-widest">Term Grades</p>
                                 </div>
                                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
-                                    ${termCell('Prelim', '20%', prelimPct)}
-                                    ${termCell('Midterm', '30%', midtermPct)}
-                                    ${termCell('Semi-Final', '20%', semifinalPct)}
-                                    ${termCell('Final Term', '30%', finalTermPct)}
+                                    ${termCell('Prelim', prelimPct)}
+                                    ${termCell('Midterm', midtermPct)}
+                                    ${termCell('Semi-Final', semifinalPct)}
+                                    ${termCell('Final Term', finalTermPct)}
                                 </div>
                             </div>
 
