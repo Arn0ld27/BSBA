@@ -2,72 +2,113 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Portal · Grades & Reminders</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#020617">
+    <title>Student Portal · BSBA 1B Grades & Reminders</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        input:focus-visible, button:focus-visible { outline: 2px solid #38bdf8; outline-offset: 2px; }
+        body { font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
+        input:focus-visible, button:focus-visible { outline: 2px solid #10b981; outline-offset: 2px; }
         .fade-in { animation: fadeIn 0.2s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 4px 14px -4px rgba(0,0,0,0.6); }
+            50%      { box-shadow: 0 0 0 1px rgba(255,255,255,0.12), 0 4px 20px -4px rgba(0,0,0,0.8); }
+        }
+        .point-badge-glow { animation: pulseGlow 3s ease-in-out infinite; }
+
+        .badge-text {
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8), 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        @keyframes shimmer {
+            0%   { transform: translateX(-120%); }
+            100% { transform: translateX(220%); }
+        }
+        .gold-shimmer { position: relative; overflow: hidden; }
+        .gold-shimmer::before {
+            content: '';
+            position: absolute; top: 0; left: 0;
+            width: 40%; height: 100%;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,215,100,0.25) 50%, transparent 100%);
+            animation: shimmer 3.5s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes crownPulse {
+            0%, 100% { transform: scale(1) rotate(-3deg); filter: drop-shadow(0 0 4px rgba(251,191,36,0.5)); }
+            50%      { transform: scale(1.08) rotate(3deg); filter: drop-shadow(0 0 10px rgba(251,191,36,0.9)); }
+        }
+        .crown-pulse { animation: crownPulse 2.5s ease-in-out infinite; }
+
+        @keyframes medalGlow {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(251,191,36,0.4), inset 0 2px 4px rgba(0,0,0,0.4); }
+            50%      { box-shadow: 0 0 20px 2px rgba(251,191,36,0.55), inset 0 2px 4px rgba(0,0,0,0.4); }
+        }
+        .medal-glow { animation: medalGlow 3s ease-in-out infinite; }
+
+        @media (max-width: 640px) {
+            input, button { font-size: 16px; }
+        }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-sky-500 selection:text-white">
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-emerald-500 selection:text-white">
 
     <!-- HEADER -->
-    <header class="bg-slate-950 text-white border-b border-slate-800 sticky top-0 z-50 backdrop-blur-sm bg-slate-950/95">
-        <div class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <div class="bg-sky-500/10 p-2 rounded-xl border border-sky-500/30 shadow-sm">
-                    <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+    <header class="bg-slate-950 text-white border-b border-emerald-900/40 sticky top-0 z-50 backdrop-blur-sm bg-slate-950/95">
+        <div class="max-w-4xl mx-auto px-3 sm:px-4 py-3 sm:py-4 flex justify-between items-center gap-2">
+            <div class="flex items-center space-x-2 sm:space-x-3 min-w-0">
+                <div class="bg-emerald-500/10 p-1.5 sm:p-2 rounded-lg sm:rounded-xl border border-emerald-500/30 shadow-sm flex-shrink-0">
+                    <svg class="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 11.955A12.051 12.051 0 0112 20.555a12.051 12.051 0 01-6.16-2.922 12.083 12.083 0 01.665-11.955L12 14z"></path>
                     </svg>
                 </div>
-                <h1 class="text-base sm:text-lg font-bold tracking-wide text-white">Student Portal</h1>
+                <h1 class="text-sm sm:text-base md:text-lg font-bold tracking-wide text-white truncate">Student Portal · BSBA</h1>
             </div>
-            <div id="user-nav-info" class="hidden flex items-center space-x-3">
-                <span id="nav-student-name" class="hidden sm:inline text-xs font-semibold text-sky-300"></span>
-                <button onclick="logout()" class="bg-slate-900 hover:bg-slate-800 text-xs px-3 py-1.5 rounded-lg font-medium transition text-slate-200 border border-slate-700 shadow-sm">Logout</button>
+            <div id="user-nav-info" class="hidden flex items-center space-x-2 sm:space-x-3 flex-shrink-0">
+                <span id="nav-student-name" class="hidden md:inline text-xs font-semibold text-emerald-300 truncate max-w-[140px]"></span>
+                <button onclick="logout()" class="bg-slate-900 hover:bg-slate-800 active:bg-slate-700 text-[11px] sm:text-xs px-2.5 sm:px-3 py-1.5 rounded-lg font-medium transition text-slate-200 border border-slate-700 shadow-sm">Logout</button>
             </div>
         </div>
     </header>
 
     <!-- MAIN -->
-    <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-6 sm:py-8 flex flex-col justify-center">
+    <main class="flex-grow max-w-4xl w-full mx-auto px-3 sm:px-4 py-4 sm:py-6 md:py-8 flex flex-col justify-center">
 
         <!-- LOGIN -->
         <section id="login-section" class="max-w-md w-full mx-auto bg-slate-900 rounded-2xl shadow-2xl overflow-hidden border border-slate-800 my-auto fade-in">
-            <div class="bg-slate-900 px-6 py-6 text-white text-center border-b border-slate-800">
-                <div class="inline-block bg-sky-500/10 p-3 rounded-2xl border border-sky-500/30 mb-3">
-                    <svg class="w-7 h-7 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <div class="bg-slate-900 px-5 sm:px-6 py-5 sm:py-6 text-white text-center border-b border-slate-800">
+                <div class="inline-block bg-emerald-500/10 p-2.5 sm:p-3 rounded-2xl border border-emerald-500/30 mb-2 sm:mb-3">
+                    <svg class="w-6 h-6 sm:w-7 sm:h-7 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                     </svg>
                 </div>
-                <h2 class="text-xl sm:text-2xl font-bold">Portal Login</h2>
+                <h2 class="text-lg sm:text-xl md:text-2xl font-bold">Student Login</h2>
                 <p class="text-slate-400 text-xs sm:text-sm mt-1">Enter your School Email and ID Number</p>
             </div>
-            <form id="login-form" onsubmit="handleLogin(event)" class="p-6 sm:p-8 space-y-4">
+            <form id="login-form" onsubmit="handleLogin(event)" class="p-5 sm:p-6 md:p-8 space-y-3.5 sm:space-y-4">
                 <div>
-                    <label for="school-email" class="block text-xs font-bold uppercase tracking-wider text-sky-400 mb-1.5">School Email</label>
-                    <input type="email" id="school-email" required placeholder="e.g., student@gmail.com"
-                        autocomplete="email"
-                        class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 text-sm text-slate-100 placeholder-slate-500">
+                    <label for="school-email" class="block text-[11px] sm:text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1.5"> Email</label>
+                    <input type="email" id="school-email" required placeholder="e.g., singolreymark@gmail.com"
+                        autocomplete="email" inputmode="email"
+                        class="w-full px-3.5 sm:px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-sm text-slate-100 placeholder-slate-500">
                 </div>
                 <div>
-                    <label for="school-id" class="block text-xs font-bold uppercase tracking-wider text-sky-400 mb-1.5">School ID Number</label>
+                    <label for="school-id" class="block text-[11px] sm:text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1.5">School ID Number</label>
                     <input type="text" id="school-id" required placeholder="e.g., 226-XXXX-XXXXXXXX"
                         autocomplete="off"
-                        class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 text-sm text-slate-100 placeholder-slate-500">
+                        class="w-full px-3.5 sm:px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-sm text-slate-100 placeholder-slate-500">
                 </div>
                 <div id="login-error" class="hidden text-rose-400 text-xs font-medium text-center bg-rose-950/50 p-2.5 rounded-lg border border-rose-900" role="alert"></div>
-                <button type="submit" id="login-btn" class="w-full bg-sky-500 hover:bg-sky-400 active:bg-sky-600 text-white font-semibold py-3 rounded-xl transition shadow-lg shadow-sky-500/20 text-sm flex items-center justify-center gap-2">
-                    <span>Access Portal Securely</span>
+                <button type="submit" id="login-btn" class="w-full bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-600 text-white font-semibold py-3 rounded-xl transition shadow-lg shadow-emerald-500/20 text-sm flex items-center justify-center gap-2">
+                    <span>Login</span>
                 </button>
-                <p class="text-center text-[11px] text-slate-500 mt-2 leading-relaxed">
-                    Use your registered Gmail and Student ID<br>
-                    <span class="text-sky-400/80">e.g., juandelacruz@gmail.com / 226-XXXX-XXXXXXXX</span>
+                <p class="text-center text-[10px] sm:text-[11px] text-slate-500 mt-2 leading-relaxed">
+                    Gamitin nyo yung nilagay nyo sa gform na finill up nyo<br>
+                    <span class="text-emerald-400/80 break-all">e.g., singolreymark@gmail.com / 226-XXXX-XXXXXXXX</span>
                 </p>
             </form>
         </section>
@@ -75,7 +116,7 @@
         <!-- LOADING -->
         <section id="loading-section" class="hidden max-w-sm mx-auto text-center py-12 space-y-4 my-auto" aria-live="polite">
             <div class="inline-block p-4 bg-slate-900 rounded-2xl border border-slate-800 shadow-xl">
-                <svg class="animate-spin h-10 w-10 text-sky-400 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                <svg class="animate-spin h-10 w-10 text-emerald-400 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
                     <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                     <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
@@ -87,98 +128,72 @@
         </section>
 
         <!-- DASHBOARD -->
-        <section id="dashboard-section" class="hidden space-y-6 fade-in">
+        <section id="dashboard-section" class="hidden space-y-4 sm:space-y-6 fade-in">
 
             <!-- PROFILE BANNER -->
-            <div class="bg-slate-900 rounded-2xl shadow-lg border border-slate-800 p-5 sm:p-6 flex flex-col sm:flex-row justify-between items-start sm:items-stretch gap-4">
-                <div class="flex items-center space-x-4 flex-1">
-                    <div class="w-14 h-14 sm:w-16 sm:h-16 bg-sky-500/10 text-sky-300 font-bold text-xl rounded-2xl flex-shrink-0 flex items-center justify-center border border-sky-500/30 shadow-inner" id="student-initials">--</div>
-                    <div>
-                        <h2 id="dash-name" class="text-lg sm:text-xl font-bold text-white"></h2>
-                        <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Section: <span id="dash-section" class="font-semibold text-sky-300"></span></p>
-                        <p class="text-[11px] text-slate-500 font-mono mt-0.5">Email: <span id="dash-email"></span> | ID: <span id="dash-id"></span></p>
+            <div class="bg-slate-900 rounded-2xl shadow-lg border border-slate-800 p-4 sm:p-5 md:p-6">
+                <div class="flex items-center gap-3 sm:gap-4 min-w-0">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-emerald-500/10 text-emerald-300 font-bold text-base sm:text-lg md:text-xl rounded-xl sm:rounded-2xl flex-shrink-0 flex items-center justify-center border border-emerald-500/30 shadow-inner" id="student-initials">--</div>
+                    <div class="min-w-0 flex-1">
+                        <h2 id="dash-name" class="text-base sm:text-lg md:text-xl font-bold text-white break-words leading-tight"></h2>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Section: <span id="dash-section" class="font-semibold text-emerald-300"></span></p>
+                        <p class="text-[10px] sm:text-[11px] text-slate-500 font-mono mt-0.5 break-all leading-relaxed">
+                            <span class="text-slate-500">Email:</span> <span id="dash-email"></span><br class="sm:hidden">
+                            <span class="hidden sm:inline"> | </span>
+                            <span class="text-slate-500">ID:</span> <span id="dash-id"></span>
+                        </p>
                     </div>
-                </div>
-                <div class="w-full sm:w-auto bg-slate-950/60 px-6 py-4 rounded-xl border border-slate-800 flex flex-col items-center sm:items-end justify-center gap-1 min-w-[180px]">
-                    <p class="text-[10px] uppercase font-bold text-sky-400 tracking-wider text-center sm:text-right">Semi-Final Exam Score</p>
-                    <p class="text-2xl sm:text-3xl font-black text-sky-300 leading-none">
-                        <span id="dash-exam-score">—</span><span class="text-slate-500 text-base font-bold ml-1">/ 52</span>
-                    </p>
+
+                    <div id="dash-point-badge" class="hidden flex-shrink-0 rounded-2xl border-2 px-3 sm:px-4 py-2 sm:py-2.5 flex flex-col items-center justify-center min-w-[70px] sm:min-w-[88px] point-badge-glow">
+                        <p class="text-[8px] sm:text-[9px] uppercase font-bold tracking-widest text-white/70" id="dash-point-label">Point</p>
+                        <p class="text-xl sm:text-2xl md:text-3xl font-black leading-none font-mono mt-0.5 text-white badge-text" id="dash-point-value">—</p>
+                    </div>
                 </div>
             </div>
 
             <!-- TOP 10 BADGES -->
-            <div id="top10-badges" class="hidden grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+            <div id="top10-badges" class="hidden space-y-2.5 sm:space-y-3"></div>
 
             <!-- REMINDER -->
-            <div id="reminder-card" class="bg-amber-950/30 border-l-4 border-amber-500 p-4 sm:p-5 rounded-r-2xl shadow-md border border-amber-900/40 flex items-start justify-between gap-4">
-                <div class="flex items-start gap-3">
-                    <div class="bg-amber-500/20 p-2 rounded-xl border border-amber-500/30 text-amber-400 flex-shrink-0">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <div id="reminder-card" class="bg-amber-950/30 border-l-4 border-amber-500 p-3.5 sm:p-4 md:p-5 rounded-r-2xl shadow-md border border-amber-900/40 flex items-start justify-between gap-3">
+                <div class="flex items-start gap-2.5 sm:gap-3 min-w-0">
+                    <div class="bg-amber-500/20 p-1.5 sm:p-2 rounded-lg sm:rounded-xl border border-amber-500/30 text-amber-400 flex-shrink-0">
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
                         </svg>
                     </div>
-                    <div>
-                        <h3 class="text-xs sm:text-sm font-bold text-amber-400">Important General Reminder</h3>
-                        <p class="text-xs sm:text-sm text-amber-200/90 mt-0.5">Please check your subject requirements and complete any pending assignments before the cut-off period.</p>
+                    <div class="min-w-0">
+                        <h3 class="text-[11px] sm:text-xs md:text-sm font-bold text-amber-400">Important General Reminder</h3>
+                        <p class="text-[11px] sm:text-xs md:text-sm text-amber-200/90 mt-0.5 leading-snug">Please habang mabait pa ako sa inyo ,mag comply kayo bago mag final exam hahah</p>
                     </div>
                 </div>
-                <button onclick="dismissReminder()" class="text-amber-400/70 hover:text-amber-300 text-lg leading-none p-1 rounded-lg hover:bg-amber-900/30 transition flex-shrink-0" aria-label="Dismiss reminder">✕</button>
+                <button onclick="dismissReminder()" class="text-amber-400/70 hover:text-amber-300 text-base leading-none p-1 rounded-lg hover:bg-amber-900/30 transition flex-shrink-0" aria-label="Dismiss reminder">✕</button>
             </div>
 
             <!-- GRADES -->
-            <div class="space-y-4">
-                <div class="flex justify-between items-center px-1">
-                    <h3 class="font-bold text-white text-base sm:text-lg">Subject Grades</h3>
-                    <span class="text-[11px] text-slate-400">Auto-converted to point equivalent</span>
+            <div class="space-y-3 sm:space-y-4">
+                <div class="flex justify-between items-center px-1 gap-2">
+                    <h3 class="font-bold text-white text-sm sm:text-base md:text-lg">Subject Grades</h3>
+                    <span class="text-[10px] sm:text-[11px] text-slate-400 text-right">Final grade highlighted</span>
                 </div>
-                <div id="grades-boxes-container" class="space-y-3"></div>
-            </div>
-
-            <!-- GRADING SCHEME TABLE -->
-           <!-- <div class="bg-slate-900 rounded-2xl shadow-lg border border-slate-800 p-5 sm:p-6">
-                <h3 class="font-bold text-white text-base sm:text-lg mb-3 flex items-center gap-2">
-                    <svg class="w-5 h-5 text-sky-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
-                    </svg>
-                    Grading Scheme
-                </h3>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-xs sm:text-sm">
-                        <thead>
-                            <tr class="border-b border-slate-800">
-                                <th class="text-left py-2 px-3 font-bold text-sky-400 uppercase tracking-wider">Percentage</th>
-                                <th class="text-right py-2 px-3 font-bold text-sky-400 uppercase tracking-wider">Point Equivalent</th>
-                            </tr>
-                        </thead>
-                        <tbody class="text-slate-300">
-                            <tr class="border-b border-slate-800/60"><td class="py-1.5 px-3 font-mono">96.0 – 100</td><td class="py-1.5 px-3 text-right font-mono font-bold text-sky-300">1.00</td></tr>
-                            <tr class="border-b border-slate-800/60"><td class="py-1.5 px-3 font-mono">91.5 – 95.9</td><td class="py-1.5 px-3 text-right font-mono font-bold text-sky-300">1.25</td></tr>
-                            <tr class="border-b border-slate-800/60"><td class="py-1.5 px-3 font-mono">87.0 – 91.4</td><td class="py-1.5 px-3 text-right font-mono font-bold text-sky-300">1.50</td></tr>
-                            <tr class="border-b border-slate-800/60"><td class="py-1.5 px-3 font-mono">82.5 – 86.9</td><td class="py-1.5 px-3 text-right font-mono font-bold text-sky-300">1.75</td></tr>
-                            <tr class="border-b border-slate-800/60"><td class="py-1.5 px-3 font-mono">78.0 – 82.4</td><td class="py-1.5 px-3 text-right font-mono font-bold text-sky-300">2.00</td></tr>
-                            <tr class="border-b border-slate-800/60"><td class="py-1.5 px-3 font-mono">73.5 – 77.9</td><td class="py-1.5 px-3 text-right font-mono font-bold text-sky-300">2.25</td></tr>
-                            <tr class="border-b border-slate-800/60"><td class="py-1.5 px-3 font-mono">69.0 – 73.4</td><td class="py-1.5 px-3 text-right font-mono font-bold text-sky-300">2.50</td></tr>
-                            <tr class="border-b border-slate-800/60"><td class="py-1.5 px-3 font-mono">64.5 – 68.9</td><td class="py-1.5 px-3 text-right font-mono font-bold text-sky-300">2.75</td></tr>
-                            <tr class="border-b border-slate-800/60"><td class="py-1.5 px-3 font-mono">60.0 – 64.4</td><td class="py-1.5 px-3 text-right font-mono font-bold text-sky-300">3.00</td></tr>
-                            <tr><td class="py-1.5 px-3 font-mono text-rose-400">Below 60</td><td class="py-1.5 px-3 text-right font-mono font-bold text-rose-400">5.00</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+                <div id="grades-boxes-container" class="space-y-3 sm:space-y-4"></div>
             </div>
         </section>
     </main>
--->
+
     <!-- FOOTER -->
-    <footer class="border-t border-slate-800 mt-12 py-4 text-center text-xs text-slate-500">
-        Student Portal · Living in the IT Era
+    <footer class="border-t border-slate-800 mt-8 sm:mt-12 py-3 sm:py-4 text-center text-[10px] sm:text-xs text-slate-500 px-3">
+        BSBA · Living in the IT Era · Pogi Arnold
     </footer>
 
     <!-- LOGIC -->
     <script>
         let allStudents = [];
         let currentStudent = null;
-        let rankings = { midterm: {}, semifinal: {} };
+
+        // Rankings now keyed by SECTION first
+        // Shape: { sectionName: { midterm: {}, semifinal: {}, overall: {} } }
+        let rankings = {};
 
         function escapeHtml(text) {
             if (text === null || text === undefined) return '';
@@ -187,30 +202,44 @@
             return div.innerHTML;
         }
 
-        function percentageToPoint(pct) {
-            if (pct === null || pct === undefined || isNaN(pct)) return '—';
-            const p = Number(pct);
-            if (p >= 96.0) return '1.00';
-            if (p >= 91.5) return '1.25';
-            if (p >= 87.0) return '1.50';
-            if (p >= 82.5) return '1.75';
-            if (p >= 78.0) return '2.00';
-            if (p >= 73.5) return '2.25';
-            if (p >= 69.0) return '2.50';
-            if (p >= 64.5) return '2.75';
-            if (p >= 60.0) return '3.00';
-            return '5.00';
-        }
-
         function pointColor(point) {
-            if (point === '—') return 'text-slate-500';
+            if (point === '—' || point === null || point === undefined) return 'text-slate-500';
             const p = parseFloat(point);
-            if (p <= 1.50) return 'text-sky-300';
-            if (p <= 2.00) return 'text-sky-400';
+            if (isNaN(p)) return 'text-slate-500';
+            if (p <= 1.50) return 'text-emerald-300';
+            if (p <= 2.00) return 'text-teal-300';
             if (p <= 2.50) return 'text-amber-300';
             if (p <= 3.00) return 'text-orange-400';
             return 'text-rose-400';
         }
+
+        function pointBgColor(point) {
+            if (point === '—' || point === null || point === undefined) return 'from-slate-800 to-slate-900 border-slate-700';
+            const p = parseFloat(point);
+            if (isNaN(p)) return 'from-slate-800 to-slate-900 border-slate-700';
+            if (p <= 1.50) return 'from-emerald-950/70 to-slate-900 border-emerald-800/60';
+            if (p <= 2.00) return 'from-teal-950/60 to-slate-900 border-teal-800/60';
+            if (p <= 2.50) return 'from-amber-950/60 to-slate-900 border-amber-800/60';
+            if (p <= 3.00) return 'from-orange-950/60 to-slate-900 border-orange-800/60';
+            return 'from-rose-950/70 to-slate-900 border-rose-800/60';
+        }
+
+        function pointBadgeStyle(point) {
+            if (point === '—' || point === null || point === undefined) {
+                return { cls: 'bg-slate-900 border-slate-700' };
+            }
+            const p = parseFloat(point);
+            if (isNaN(p)) return { cls: 'bg-slate-900 border-slate-700' };
+
+            if (p <= 1.50) return { cls: 'bg-slate-900 bg-gradient-to-br from-emerald-950 via-slate-900 to-teal-950 border-emerald-400' };
+            if (p <= 2.00) return { cls: 'bg-slate-900 bg-gradient-to-br from-teal-950 via-slate-900 to-cyan-950 border-teal-400' };
+            if (p <= 2.50) return { cls: 'bg-slate-900 bg-gradient-to-br from-amber-950 via-slate-900 to-orange-950 border-amber-400' };
+            if (p <= 3.00) return { cls: 'bg-slate-900 bg-gradient-to-br from-orange-950 via-slate-900 to-red-950 border-orange-400' };
+            return { cls: 'bg-slate-900 bg-gradient-to-br from-rose-950 via-slate-900 to-red-950 border-rose-400' };
+        }
+
+        const num = v => (v !== null && v !== undefined && v !== '' && !isNaN(v)) ? Number(v) : null;
+        const str = v => (v !== null && v !== undefined && v !== '') ? String(v) : null;
 
         function groupStudents(flatRows) {
             const map = new Map();
@@ -223,71 +252,101 @@
                         id: row.id,
                         email: row.email,
                         name: row.name,
-                        section: (row.section || 'N/A').trim(),
+                        section: row.section || 'N/A',
                         grades: [],
-                        examScore: (row.semi_final_exam_score !== null && row.semi_final_exam_score !== undefined)
-                            ? Number(row.semi_final_exam_score) : null
+                        overallAverage: num(row.overall_average),
+                        overallPoint:   str(row.overall_point),
+                        overallRank:    num(row.overall_rank)
                     });
                 }
+
+                const examScore = num(row.exam_score ?? row.final_exam_score ?? row.final_exam);
+                const examTotal = num(row.exam_total ?? row.final_exam_total) ?? 50;
+
                 map.get(key).grades.push({
                     code: row.code || 'N/A',
                     title: row.description || 'N/A',
-                    midterm: (row.midterm !== null && row.midterm !== undefined)
-                        ? Number(row.midterm) : null,
-                    semifinal: (row.semi_finals !== null && row.semi_finals !== undefined)
-                        ? Number(row.semi_finals) : null
+                    prelim:    num(row.prelim),
+                    midterm:   num(row.midterm),
+                    semifinal: num(row.semi_finals ?? row.semifinal),
+                    finalTerm: num(row.final_term ?? row.finalTerm ?? row.finals),
+                    examScore: examScore,
+                    examTotal: examTotal,
+                    finalAverage: num(row.final_average ?? row.finalAverage),
+                    finalPoint:   str(row.final_point ?? row.finalPoint)
                 });
             }
             return Array.from(map.values());
         }
 
-        // 🏆 Compute rankings PER SECTION
+        // ⭐ PER-SECTION rankings
         function computeRankings(flatRows) {
-            const bySection = new Map();
+            // Group by SECTION, then by NAME
+            const sections = new Map(); // section -> Map(name -> entry)
 
             for (const row of flatRows) {
-                const section = (row.section || 'N/A').trim();
-                const name = row.name.trim();
+                if (!row.name) continue;
 
-                if (!bySection.has(section)) {
-                    bySection.set(section, new Map());
-                }
-                const sectionMap = bySection.get(section);
+                const sectionKey = (row.section || 'N/A').trim();
+                const nameKey = row.name.trim();
 
-                if (!sectionMap.has(name)) {
-                    sectionMap.set(name, { name: row.name, section, midterm: null, semifinal: null });
+                if (!sections.has(sectionKey)) sections.set(sectionKey, new Map());
+                const byName = sections.get(sectionKey);
+
+                if (!byName.has(nameKey)) {
+                    byName.set(nameKey, {
+                        name: row.name,
+                        midterm: null,
+                        semifinal: null,
+                        overall: null,
+                        overallRank: null
+                    });
                 }
-                const entry = sectionMap.get(name);
-                if (row.midterm !== null && row.midterm !== undefined && !isNaN(row.midterm)) {
-                    entry.midterm = Number(row.midterm);
-                }
-                if (row.semi_finals !== null && row.semi_finals !== undefined && !isNaN(row.semi_finals)) {
-                    entry.semifinal = Number(row.semi_finals);
-                }
+                const entry = byName.get(nameKey);
+
+                const r = num(row.overall_rank);
+                if (r !== null) entry.overallRank = r;
+
+                const m = num(row.midterm);
+                if (m !== null) entry.midterm = m;
+
+                const s = num(row.semi_finals ?? row.semifinal);
+                if (s !== null) entry.semifinal = s;
+
+                const o = num(row.overall_average);
+                if (o !== null) entry.overall = o;
             }
 
-            const midtermRank = {};
-            const semifinalRank = {};
+            // Build ranking maps PER SECTION
+            const result = {};
 
-            for (const [section, sectionMap] of bySection) {
-                const students = Array.from(sectionMap.values());
+            for (const [sectionKey, byName] of sections.entries()) {
+                const all = Array.from(byName.values());
 
-                const midSorted = students
-                    .filter(s => s.midterm !== null)
-                    .sort((a, b) => b.midterm - a.midterm);
-                midSorted.forEach((s, i) => {
-                    midtermRank[`${section}::${s.name.trim()}`] = i + 1;
-                });
+                const rankBy = (field) => {
+                    const sorted = all.filter(s => s[field] !== null).sort((a, b) => b[field] - a[field]);
+                    const rankMap = {};
+                    sorted.forEach((s, i) => { rankMap[s.name.trim()] = i + 1; });
+                    return rankMap;
+                };
 
-                const semiSorted = students
-                    .filter(s => s.semifinal !== null)
-                    .sort((a, b) => b.semifinal - a.semifinal);
-                semiSorted.forEach((s, i) => {
-                    semifinalRank[`${section}::${s.name.trim()}`] = i + 1;
-                });
+                const overallMap = {};
+                for (const s of all) {
+                    if (s.overallRank !== null) overallMap[s.name.trim()] = s.overallRank;
+                }
+                const computedOverall = rankBy('overall');
+                for (const [k, v] of Object.entries(computedOverall)) {
+                    if (!(k in overallMap)) overallMap[k] = v;
+                }
+
+                result[sectionKey] = {
+                    midterm: rankBy('midterm'),
+                    semifinal: rankBy('semifinal'),
+                    overall: overallMap
+                };
             }
 
-            return { midterm: midtermRank, semifinal: semifinalRank };
+            return result;
         }
 
         async function loadStudentData() {
@@ -297,11 +356,7 @@
                 const raw = await response.json();
                 allStudents = groupStudents(raw);
                 rankings = computeRankings(raw);
-                console.log(`✅ Loaded ${allStudents.length} students (with login)`);
-                console.log(`📊 Sections ranked:`, Object.keys(
-                    Array.from(new Set(raw.map(r => (r.section || 'N/A').trim())))
-                        .reduce((acc, s) => (acc[s] = true, acc), {})
-                ));
+                console.log(`✅ Loaded ${allStudents.length} students across ${Object.keys(rankings).length} section(s)`);
                 return true;
             } catch (error) {
                 console.error("Error loading student records:", error);
@@ -339,7 +394,6 @@
                 errorDiv.classList.remove('hidden');
                 return;
             }
-
             if (allStudents.length === 0) {
                 errorDiv.textContent = "Student data not available. Please refresh.";
                 errorDiv.classList.remove('hidden');
@@ -373,19 +427,69 @@
             }, 700);
         }
 
-        function buildTop10Badge(termLabel, section, rank, score) {
+        function buildCompactTop10Badge(termLabel, rank, score) {
+            const scoreStr = (score !== null && score !== undefined && !isNaN(score))
+                ? Number(score).toFixed(2) + '%' : '—';
             return `
-                <div class="bg-gradient-to-br from-amber-950/60 to-slate-900 border-l-4 border-amber-500 rounded-r-2xl p-4 shadow-md flex items-center gap-3">
-                    <div class="bg-amber-500/20 p-3 rounded-xl border border-amber-500/40 text-amber-400 flex-shrink-0">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                <div class="bg-slate-900 border border-amber-800/60 rounded-xl p-3 sm:p-3.5 shadow-md flex items-center gap-3">
+                    <div class="bg-amber-500/10 p-2 sm:p-2.5 rounded-lg border border-amber-500/30 text-amber-400 flex-shrink-0">
+                        <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.196-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118L2.06 9.36c-.783-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
                         </svg>
                     </div>
-                    <div class="flex-1">
-                        <p class="text-[10px] uppercase font-bold text-amber-400 tracking-wider">${termLabel} · ${section}</p>
-                        <p class="text-lg sm:text-xl font-black text-white leading-tight">Rank #${rank}</p>
-                        <p class="text-xs text-amber-200/80 mt-0.5 font-mono">${score}%</p>
+                    <div class="flex-1 min-w-0">
+                        <p class="text-[9px] sm:text-[10px] uppercase font-bold text-amber-400/90 tracking-wider">${termLabel}</p>
+                        <p class="text-base sm:text-lg font-black text-white leading-tight">Rank #${rank}</p>
+                        <p class="text-[11px] sm:text-xs text-amber-200/70 mt-0.5 font-mono">${scoreStr}</p>
                     </div>
+                </div>
+            `;
+        }
+
+        function buildOverallTop10Badge(rank, score) {
+            const scoreStr = (score !== null && score !== undefined && !isNaN(score))
+                ? Number(score).toFixed(2) + '%' : '—';
+
+            let medalTone = 'from-amber-400 to-yellow-600 border-amber-300';
+            let rankTextColor = 'text-amber-100';
+            if (rank === 1) { medalTone = 'from-yellow-300 via-amber-400 to-yellow-600 border-yellow-200'; rankTextColor = 'text-yellow-50'; }
+            else if (rank === 2) { medalTone = 'from-slate-200 via-slate-400 to-slate-600 border-slate-100'; rankTextColor = 'text-slate-50'; }
+            else if (rank === 3) { medalTone = 'from-orange-300 via-amber-500 to-orange-700 border-orange-200'; rankTextColor = 'text-orange-50'; }
+
+            return `
+                <div class="relative gold-shimmer rounded-2xl overflow-hidden shadow-2xl border-2 border-amber-500/60"
+                     style="background: linear-gradient(135deg, #1c1407 0%, #0f172a 45%, #1c1407 100%);">
+
+                    <div class="absolute -top-12 -left-12 w-40 h-40 bg-amber-500/20 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="absolute -bottom-12 -right-12 w-40 h-40 bg-yellow-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="relative px-4 sm:px-6 py-4 sm:py-5 flex items-center gap-3.5 sm:gap-5">
+                        <div class="flex-shrink-0 bg-gradient-to-br from-amber-500/20 to-yellow-600/10 p-2.5 sm:p-3.5 rounded-2xl border border-amber-400/40">
+                            <svg class="w-6 h-6 sm:w-8 sm:h-8 text-amber-300 crown-pulse" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M5 16L3 5l5.5 5L12 4l3.5 6L21 5l-2 11H5zm14 3c0 .6-.4 1-1 1H6c-.6 0-1-.4-1-1v-1h14v1z"/>
+                            </svg>
+                        </div>
+
+                        <div class="flex-1 min-w-0">
+                            <p class="text-[9px] sm:text-[10px] uppercase font-black text-amber-400 tracking-[0.2em]">🏆 Overall Top 10</p>
+                            <p class="text-[11px] sm:text-xs font-bold text-amber-200/80 tracking-wider mt-0.5">Prelim → Finals</p>
+                            <div class="flex items-center gap-2 mt-1.5">
+                                <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                                <p class="text-[10px] sm:text-[11px] text-emerald-300/90 font-semibold">Overall Final Average: <span class="font-mono text-white">${scoreStr}</span></p>
+                            </div>
+                        </div>
+
+                        <div class="flex-shrink-0 flex flex-col items-center">
+                            <div class="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-br ${medalTone} border-2 medal-glow flex items-center justify-center">
+                                <div class="text-center leading-none">
+                                    <p class="text-[8px] sm:text-[9px] font-black ${rankTextColor} tracking-widest opacity-80">RANK</p>
+                                    <p class="text-xl sm:text-2xl md:text-3xl font-black ${rankTextColor} badge-text leading-none">#${rank}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="h-1 bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
                 </div>
             `;
         }
@@ -404,37 +508,55 @@
             document.getElementById('dash-email').textContent = currentStudent.email;
             document.getElementById('dash-id').textContent = currentStudent.id;
 
-            document.getElementById('dash-exam-score').textContent =
-                currentStudent.examScore !== null ? currentStudent.examScore : '—';
-
             const initials = currentStudent.name
-                .split(/[\s,]+/)
-                .filter(Boolean)
-                .map(n => n[0])
-                .join('')
-                .toUpperCase()
-                .slice(0, 2);
+                .split(/[\s,]+/).filter(Boolean).map(n => n[0]).join('').toUpperCase().slice(0, 2);
             document.getElementById('student-initials').textContent = initials || '??';
 
-            // 🏆 TOP 10 BADGES (per section)
+            // POINT BADGE
+            const badge = document.getElementById('dash-point-badge');
+            const ptVal = document.getElementById('dash-point-value');
+            const ptLbl = document.getElementById('dash-point-label');
+            const pt = currentStudent.overallPoint ?? '—';
+
+            if (pt !== '—' && pt !== null) {
+                const style = pointBadgeStyle(pt);
+                badge.className = 'flex-shrink-0 rounded-2xl border-2 px-3 sm:px-4 py-2 sm:py-2.5 flex flex-col items-center justify-center min-w-[70px] sm:min-w-[88px] point-badge-glow ' + style.cls;
+                ptVal.textContent = pt;
+                ptLbl.textContent = 'Point Eq.';
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+
+            // ⭐ TOP 10 BADGES — PER SECTION
             const badgesContainer = document.getElementById('top10-badges');
             const nameKey = currentStudent.name.trim();
-            const sectionKey = currentStudent.section.trim();
-            const rankKey = `${sectionKey}::${nameKey}`;
+            const sectionKey = (currentStudent.section || 'N/A').trim();
+            const sectionRankings = rankings[sectionKey] || { midterm: {}, semifinal: {}, overall: {} };
 
-            const midtermRank = rankings.midterm[rankKey];
-            const semifinalRank = rankings.semifinal[rankKey];
+            const midtermRank = sectionRankings.midterm[nameKey];
+            const semifinalRank = sectionRankings.semifinal[nameKey];
+            const overallRank = sectionRankings.overall[nameKey];
 
             const badgesHTML = [];
+
+            if (overallRank && overallRank <= 10) {
+                badgesHTML.push(buildOverallTop10Badge(overallRank, currentStudent.overallAverage));
+            }
+
+            const compactBadges = [];
             if (midtermRank && midtermRank <= 10) {
-                const midtermPct = currentStudent.grades[0]?.midterm;
-                const scoreStr = midtermPct !== null && midtermPct !== undefined ? midtermPct.toFixed(2) : '';
-                badgesHTML.push(buildTop10Badge('Midterm Top 10', sectionKey, midtermRank, scoreStr));
+                compactBadges.push(buildCompactTop10Badge('Midterm Top 10', midtermRank, currentStudent.grades[0]?.midterm));
             }
             if (semifinalRank && semifinalRank <= 10) {
-                const semiPct = currentStudent.grades[0]?.semifinal;
-                const scoreStr = semiPct !== null && semiPct !== undefined ? semiPct.toFixed(2) : '';
-                badgesHTML.push(buildTop10Badge('Semi-Final Top 10', sectionKey, semifinalRank, scoreStr));
+                compactBadges.push(buildCompactTop10Badge('Semi-Final Top 10', semifinalRank, currentStudent.grades[0]?.semifinal));
+            }
+            if (compactBadges.length > 0) {
+                badgesHTML.push(`
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+                        ${compactBadges.join('')}
+                    </div>
+                `);
             }
 
             if (badgesHTML.length > 0) {
@@ -445,7 +567,7 @@
                 badgesContainer.innerHTML = '';
             }
 
-            // GRADES
+            // PER-SUBJECT CARDS
             const container = document.getElementById('grades-boxes-container');
             if (!currentStudent.grades || currentStudent.grades.length === 0) {
                 container.innerHTML = `<p class="text-slate-400 text-sm">No grade records available.</p>`;
@@ -456,33 +578,92 @@
                 const code = escapeHtml(g.code);
                 const title = escapeHtml(g.title);
 
-                const midtermPct = g.midterm !== null ? g.midterm.toFixed(2) : null;
-                const semifinalPct = g.semifinal !== null ? g.semifinal.toFixed(2) : null;
+                const fmt = v => (v !== null && v !== undefined && !isNaN(v)) ? Number(v).toFixed(2) : null;
 
-                const midtermPoint = percentageToPoint(g.midterm);
-                const semifinalPoint = percentageToPoint(g.semifinal);
+                const prelimPct    = fmt(g.prelim);
+                const midtermPct   = fmt(g.midterm);
+                const semifinalPct = fmt(g.semifinal);
+                const finalTermPct = fmt(g.finalTerm);
 
-                const midtermColor = pointColor(midtermPoint);
-                const semifinalColor = pointColor(semifinalPoint);
+                const examDisplay = (g.examScore !== null && g.examScore !== undefined)
+                    ? `${g.examScore} <span class="text-slate-500 text-sm sm:text-base">/ ${g.examTotal}</span>`
+                    : '—';
+
+                const finalAvgPct = g.finalAverage !== null ? g.finalAverage.toFixed(2) : null;
+                const finalPoint  = g.finalPoint ?? '—';
+                const finalColor  = pointColor(finalPoint);
+                const heroBg      = pointBgColor(finalPoint);
+
+                const termCell = (label, weight, pct) => `
+                    <div class="bg-slate-950/50 px-2 py-2 sm:px-3 sm:py-2.5 rounded-lg border border-slate-800/80 text-center">
+                        <p class="text-[9px] uppercase font-bold text-slate-500 tracking-wider">${label}</p>
+                        <p class="text-xs sm:text-sm font-mono font-bold text-slate-300 mt-0.5">${pct !== null ? pct + '%' : '—'}</p>
+                        <p class="text-[8px] font-bold text-emerald-500/70 mt-0.5">${weight}</p>
+                    </div>
+                `;
 
                 return `
-                    <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 shadow-md hover:border-slate-700 transition">
-                        <div class="pb-3 border-b border-slate-800">
-                            <span class="text-xs font-bold text-sky-400 uppercase tracking-wider">${code}</span>
-                            <h4 class="text-base font-bold text-white">${title}</h4>
+                    <div class="bg-slate-900 rounded-2xl border border-slate-800 shadow-md overflow-hidden hover:border-slate-700 transition">
+                        <div class="px-4 sm:px-5 py-3 border-b border-slate-800">
+                            <span class="text-[10px] font-bold text-emerald-400 uppercase tracking-widest">${code}</span>
+                            <h4 class="text-sm sm:text-base font-bold text-white leading-tight break-words">${title}</h4>
                         </div>
-                        <div class="grid grid-cols-2 gap-3 pt-4 text-center">
-                            <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-800">
-                                <p class="text-[10px] uppercase font-bold text-slate-500">Midterm Grade</p>
-                                <p class="text-base sm:text-lg font-mono font-bold text-slate-200 mt-1">${midtermPct !== null ? midtermPct + '%' : '—'}</p>
-                                <p class="text-[10px] uppercase font-bold text-slate-600 mt-1">Point</p>
-                                <p class="text-lg sm:text-xl font-black font-mono ${midtermColor} mt-0.5">${midtermPoint}</p>
+
+                        <div class="bg-gradient-to-br ${heroBg} border-b border-slate-800 px-4 sm:px-5 py-4 sm:py-5">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
+                                <div class="flex items-center gap-2.5 sm:gap-3">
+                                    <div class="bg-white/5 p-2 sm:p-2.5 rounded-lg sm:rounded-xl border border-white/10 flex-shrink-0">
+                                        <svg class="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-[10px] uppercase font-bold text-white/70 tracking-widest">Final Grade</p>
+                                        <p class="text-[10px] sm:text-[11px] text-white/50">Subject Final Average</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between sm:justify-end gap-4 sm:gap-6 border-t sm:border-t-0 border-white/10 pt-3 sm:pt-0">
+                                    <div class="text-left sm:text-right">
+                                        <p class="text-[9px] uppercase font-bold text-white/60 tracking-wider">Average</p>
+                                        <p class="text-xl sm:text-2xl md:text-3xl font-black text-white font-mono leading-tight">${finalAvgPct !== null ? finalAvgPct + '%' : '—'}</p>
+                                    </div>
+                                    <div class="w-px h-10 sm:h-12 bg-white/15"></div>
+                                    <div class="text-right">
+                                        <p class="text-[9px] uppercase font-bold text-white/60 tracking-wider">Point Eq.</p>
+                                        <p class="text-xl sm:text-2xl md:text-3xl font-black ${finalColor} font-mono leading-tight">${finalPoint}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="bg-slate-950/60 p-3 rounded-xl border border-slate-800">
-                                <p class="text-[10px] uppercase font-bold text-slate-500">Semi-Final Grade</p>
-                                <p class="text-base sm:text-lg font-mono font-bold text-slate-200 mt-1">${semifinalPct !== null ? semifinalPct + '%' : '—'}</p>
-                                <p class="text-[10px] uppercase font-bold text-slate-600 mt-1">Point</p>
-                                <p class="text-lg sm:text-xl font-black font-mono ${semifinalColor} mt-0.5">${semifinalPoint}</p>
+                        </div>
+
+                        <div class="p-4 sm:p-5 space-y-4">
+                            <div>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="w-1.5 h-3.5 sm:h-4 bg-emerald-500 rounded-full"></span>
+                                    <p class="text-[10px] uppercase font-bold text-emerald-400 tracking-widest">Term Grades</p>
+                                </div>
+                                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                                    ${termCell('Prelim', '20%', prelimPct)}
+                                    ${termCell('Midterm', '30%', midtermPct)}
+                                    ${termCell('Semi-Final', '20%', semifinalPct)}
+                                    ${termCell('Final Term', '30%', finalTermPct)}
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="w-1.5 h-3.5 sm:h-4 bg-violet-500 rounded-full"></span>
+                                    <p class="text-[10px] uppercase font-bold text-violet-400 tracking-widest">Final Term Exam</p>
+                                </div>
+                                <div class="bg-violet-950/20 border border-violet-900/50 rounded-xl px-3.5 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between gap-2">
+                                    <div class="flex items-center gap-2 text-violet-300 min-w-0">
+                                        <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                                        </svg>
+                                        <p class="text-[10px] uppercase font-bold tracking-widest truncate">Exam Score</p>
+                                    </div>
+                                    <p class="text-lg sm:text-xl md:text-2xl font-black text-white font-mono flex-shrink-0">${examDisplay}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -514,6 +695,8 @@
             if (reminder) { reminder.style.display = 'flex'; reminder.style.opacity = '1'; reminder.style.transform = 'none'; }
             const badges = document.getElementById('top10-badges');
             if (badges) { badges.classList.add('hidden'); badges.innerHTML = ''; }
+            const pointBadge = document.getElementById('dash-point-badge');
+            if (pointBadge) pointBadge.classList.add('hidden');
         }
 
         window.handleLogin = handleLogin;
